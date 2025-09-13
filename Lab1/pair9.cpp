@@ -3,13 +3,13 @@
 using namespace std;
 
 class Pair9 {
-    int first;   // часы
-    int second;  // минуты
+    int first;   // С‡Р°СЃС‹
+    int second;  // РјРёРЅСѓС‚С‹
 
 public:
     bool init(int h, int m) {
         if (h < 0 || m < 0 || m >= 60) {
-            cerr << "Ошибка: часы должны быть >= 0, минуты в диапазоне [0, 59]\n";
+            cerr << "РћС€РёР±РєР°: С‡Р°СЃС‹ РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ >= 0, РјРёРЅСѓС‚С‹ РІ РґРёР°РїР°Р·РѕРЅРµ [0, 59]\n";
             return false;
         }
         first = h;
@@ -19,13 +19,13 @@ public:
 
     bool read() {
         int h, m;
-        cout << "Введите время (часы минуты): ";
+        cout << "Р’РІРµРґРёС‚Рµ РІСЂРµРјСЏ (С‡Р°СЃС‹ РјРёРЅСѓС‚С‹): ";
         if (!(cin >> h >> m)) return false;
         return init(h, m);
     }
 
     void display() const {
-        cout << "Время: " << first << " ч " << second << " мин\n";
+        cout << "Р’СЂРµРјСЏ: " << first << " С‡ " << second << " РјРёРЅ\n";
     }
 
     int minutes() const {
@@ -33,39 +33,39 @@ public:
     }
 };
 
-// фабричная функция
+// С„Р°Р±СЂРёС‡РЅР°СЏ С„СѓРЅРєС†РёСЏ
 Pair9 make_Pair9(int h, int m) {
     Pair9 p;
     if (!p.init(h, m)) {
-        cerr << "Ошибка: недопустимые аргументы для Pair9\n";
+        cerr << "РћС€РёР±РєР°: РЅРµРґРѕРїСѓСЃС‚РёРјС‹Рµ Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ Pair9\n";
         exit(EXIT_FAILURE);
     }
     return p;
 }
 
 int main() {
-    // 1. создание через фабричную функцию
+    // 1. СЃРѕР·РґР°РЅРёРµ С‡РµСЂРµР· С„Р°Р±СЂРёС‡РЅСѓСЋ С„СѓРЅРєС†РёСЋ
     Pair9 a = make_Pair9(2, 30);
 
-    // 2. создание через init()
+    // 2. СЃРѕР·РґР°РЅРёРµ С‡РµСЂРµР· init()
     Pair9 b; b.init(1, 45);
 
-    // 3. ввод с клавиатуры
+    // 3. РІРІРѕРґ СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
     Pair9 c; c.read();
 
-    a.display(); cout << "В минутах: " << a.minutes() << "\n";
-    b.display(); cout << "В минутах: " << b.minutes() << "\n";
-    c.display(); cout << "В минутах: " << c.minutes() << "\n";
+    a.display(); cout << "Р’ РјРёРЅСѓС‚Р°С…: " << a.minutes() << "\n";
+    b.display(); cout << "Р’ РјРёРЅСѓС‚Р°С…: " << b.minutes() << "\n";
+    c.display(); cout << "Р’ РјРёРЅСѓС‚Р°С…: " << c.minutes() << "\n";
 
-    // 4. массив объектов
+    // 4. РјР°СЃСЃРёРІ РѕР±СЉРµРєС‚РѕРІ
     Pair9 arr[2];
     arr[0].init(0, 15);
     arr[1] = make_Pair9(3, 0);
 
-    cout << "arr[0] = " << arr[0].minutes() << " мин\n";
-    cout << "arr[1] = " << arr[1].minutes() << " мин\n";
+    cout << "arr[0] = " << arr[0].minutes() << " РјРёРЅ\n";
+    cout << "arr[1] = " << arr[1].minutes() << " РјРёРЅ\n";
 
-    // 5. динамический массив
+    // 5. РґРёРЅР°РјРёС‡РµСЃРєРёР№ РјР°СЃСЃРёРІ
     int n = 2;
     Pair9* dynArr = new Pair9[n];
     dynArr[0] = make_Pair9(10, 5);
@@ -73,7 +73,7 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         dynArr[i].display();
-        cout << "В минутах: " << dynArr[i].minutes() << "\n";
+        cout << "Р’ РјРёРЅСѓС‚Р°С…: " << dynArr[i].minutes() << "\n";
     }
 
     delete[] dynArr;

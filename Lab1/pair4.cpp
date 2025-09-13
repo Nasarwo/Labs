@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <cstdlib>
 using namespace std;
 
@@ -9,8 +9,8 @@ class Pair4 {
     // вспомогательная проверка корректности номинала
     bool isValidNominal(int x) {
         return x == 1 || x == 2 || x == 5 || x == 10 ||
-            x == 50 || x == 100 || x == 500 ||
-            x == 1000 || x == 5000;
+               x == 50 || x == 100 || x == 500 ||
+               x == 1000 || x == 5000;
     }
 
 public:
@@ -29,7 +29,7 @@ public:
     }
     void display() const {
         cout << "Купюра " << first << " руб × " << second
-            << " шт = " << summa() << " руб\n";
+             << " шт = " << summa() << " руб\n";
     }
     int summa() const {
         return first * second;

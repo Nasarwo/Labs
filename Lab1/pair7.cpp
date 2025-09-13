@@ -3,70 +3,70 @@
 using namespace std;
 
 class Pair7 {
-    double first;   // ëåâàÿ ãğàíèöà
-    double second;  // ïğàâàÿ ãğàíèöà
+    double first;   // Ğ»ĞµĞ²Ğ°Ñ Ğ³Ñ€Ğ°Ğ½Ğ¸Ñ†Ğ°
+    double second;  // Ğ¿Ñ€Ğ°Ğ²Ğ°Ñ Ğ³Ñ€Ğ°Ğ½Ğ¸Ñ†Ğ°
 
 public:
     bool init(double a, double b) {
         if (a > b) {
-            cerr << "Îøèáêà: ëåâàÿ ãğàíèöà íå ìîæåò áûòü áîëüøå ïğàâîé\n";
+            cerr << "ĞÑˆĞ¸Ğ±ĞºĞ°: Ğ»ĞµĞ²Ğ°Ñ Ğ³Ñ€Ğ°Ğ½Ğ¸Ñ†Ğ° Ğ½Ğµ Ğ¼Ğ¾Ğ¶ĞµÑ‚ Ğ±Ñ‹Ñ‚ÑŒ Ğ±Ğ¾Ğ»ÑŒÑˆĞµ Ğ¿Ñ€Ğ°Ğ²Ğ¾Ğ¹\n";
             return false;
         }
         first = a; second = b; return true;
     }
     bool read() {
         double a, b;
-        cout << "Ââåäèòå ëåâóş è ïğàâóş ãğàíèöû äèàïàçîíà: ";
+        cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ğ»ĞµĞ²ÑƒÑ Ğ¸ Ğ¿Ñ€Ğ°Ğ²ÑƒÑ Ğ³Ñ€Ğ°Ğ½Ğ¸Ñ†Ñ‹ Ğ´Ğ¸Ğ°Ğ¿Ğ°Ğ·Ğ¾Ğ½Ğ°: ";
         if (!(cin >> a >> b)) return false;
         return init(a, b);
     }
     void display() const {
-        cout << "Äèàïàçîí: [" << first << ", " << second << "]\n";
+        cout << "Ğ”Ğ¸Ğ°Ğ¿Ğ°Ğ·Ğ¾Ğ½: [" << first << ", " << second << "]\n";
     }
     bool rangecheck(double x) const {
         return (x >= first && x <= second);
     }
 };
 
-// ôàáğè÷íàÿ ôóíêöèÿ
+// Ñ„Ğ°Ğ±Ñ€Ğ¸Ñ‡Ğ½Ğ°Ñ Ñ„ÑƒĞ½ĞºÑ†Ğ¸Ñ
 Pair7 make_Pair7(double a, double b) {
     Pair7 p;
     if (!p.init(a, b)) {
-        cerr << "Îøèáêà: íåäîïóñòèìûå àğãóìåíòû äëÿ Pair7\n";
+        cerr << "ĞÑˆĞ¸Ğ±ĞºĞ°: Ğ½ĞµĞ´Ğ¾Ğ¿ÑƒÑÑ‚Ğ¸Ğ¼Ñ‹Ğµ Ğ°Ñ€Ğ³ÑƒĞ¼ĞµĞ½Ñ‚Ñ‹ Ğ´Ğ»Ñ Pair7\n";
         exit(EXIT_FAILURE);
     }
     return p;
 }
 
 int main() {
-    // 1. ôàáğè÷íàÿ ôóíêöèÿ
+    // 1. Ñ„Ğ°Ğ±Ñ€Ğ¸Ñ‡Ğ½Ğ°Ñ Ñ„ÑƒĞ½ĞºÑ†Ğ¸Ñ
     Pair7 a = make_Pair7(0.0, 10.0);
 
-    // 2. ÷åğåç init
+    // 2. Ñ‡ĞµÑ€ĞµĞ· init
     Pair7 b; b.init(-5.0, 5.0);
 
-    // 3. ââîä ñ êëàâèàòóğû
+    // 3. Ğ²Ğ²Ğ¾Ğ´ Ñ ĞºĞ»Ğ°Ğ²Ğ¸Ğ°Ñ‚ÑƒÑ€Ñ‹
     Pair7 c; c.read();
 
     a.display(); b.display(); c.display();
 
     double x;
-    cout << "Ââåäèòå ÷èñëî äëÿ ïğîâåğêè: ";
+    cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ñ‡Ğ¸ÑĞ»Ğ¾ Ğ´Ğ»Ñ Ğ¿Ñ€Ğ¾Ğ²ĞµÑ€ĞºĞ¸: ";
     cin >> x;
 
-    cout << "a.rangecheck(" << x << ") = " << (a.rangecheck(x) ? "Äà" : "Íåò") << "\n";
-    cout << "b.rangecheck(" << x << ") = " << (b.rangecheck(x) ? "Äà" : "Íåò") << "\n";
-    cout << "c.rangecheck(" << x << ") = " << (c.rangecheck(x) ? "Äà" : "Íåò") << "\n";
+    cout << "a.rangecheck(" << x << ") = " << (a.rangecheck(x) ? "Ğ”Ğ°" : "ĞĞµÑ‚") << "\n";
+    cout << "b.rangecheck(" << x << ") = " << (b.rangecheck(x) ? "Ğ”Ğ°" : "ĞĞµÑ‚") << "\n";
+    cout << "c.rangecheck(" << x << ") = " << (c.rangecheck(x) ? "Ğ”Ğ°" : "ĞĞµÑ‚") << "\n";
 
-    // 4. ìàññèâ îáúåêòîâ
+    // 4. Ğ¼Ğ°ÑÑĞ¸Ğ² Ğ¾Ğ±ÑŠĞµĞºÑ‚Ğ¾Ğ²
     Pair7 arr[2];
     arr[0].init(1.5, 2.5);
     arr[1] = make_Pair7(-10.0, -1.0);
 
-    cout << "arr[0].rangecheck(" << x << ") = " << (arr[0].rangecheck(x) ? "Äà" : "Íåò") << "\n";
-    cout << "arr[1].rangecheck(" << x << ") = " << (arr[1].rangecheck(x) ? "Äà" : "Íåò") << "\n";
+    cout << "arr[0].rangecheck(" << x << ") = " << (arr[0].rangecheck(x) ? "Ğ”Ğ°" : "ĞĞµÑ‚") << "\n";
+    cout << "arr[1].rangecheck(" << x << ") = " << (arr[1].rangecheck(x) ? "Ğ”Ğ°" : "ĞĞµÑ‚") << "\n";
 
-    // 5. äèíàìè÷åñêèé ìàññèâ
+    // 5. Ğ´Ğ¸Ğ½Ğ°Ğ¼Ğ¸Ñ‡ĞµÑĞºĞ¸Ğ¹ Ğ¼Ğ°ÑÑĞ¸Ğ²
     int n = 2;
     Pair7* dynArr = new Pair7[n];
     dynArr[0] = make_Pair7(100.0, 200.0);
@@ -75,7 +75,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         dynArr[i].display();
         cout << "dynArr[" << i << "].rangecheck(" << x << ") = "
-            << (dynArr[i].rangecheck(x) ? "Äà" : "Íåò") << "\n";
+             << (dynArr[i].rangecheck(x) ? "Ğ”Ğ°" : "ĞĞµÑ‚") << "\n";
     }
     delete[] dynArr;
 

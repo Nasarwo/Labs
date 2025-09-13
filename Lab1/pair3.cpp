@@ -3,20 +3,20 @@
 using namespace std;
 
 class Pair3 {
-    int first;   // числитель
-    int second;  // знаменатель
+    int first;   // С‡РёСЃР»РёС‚РµР»СЊ
+    int second;  // Р·РЅР°РјРµРЅР°С‚РµР»СЊ
 
 public:
     bool init(int a, int b) {
         if (a < 0 || b <= 0) {
-            cerr << "Ошибка: числитель и знаменатель должны быть положительными, знаменатель > 0\n";
+            cerr << "РћС€РёР±РєР°: С‡РёСЃР»РёС‚РµР»СЊ Рё Р·РЅР°РјРµРЅР°С‚РµР»СЊ РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹РјРё, Р·РЅР°РјРµРЅР°С‚РµР»СЊ > 0\n";
             return false;
         }
         first = a; second = b; return true;
     }
     bool read() {
         int a, b;
-        cout << "Введите дробь (числитель знаменатель): ";
+        cout << "Р’РІРµРґРёС‚Рµ РґСЂРѕР±СЊ (С‡РёСЃР»РёС‚РµР»СЊ Р·РЅР°РјРµРЅР°С‚РµР»СЊ): ";
         if (!(cin >> a >> b)) return false;
         return init(a, b);
     }
@@ -24,28 +24,28 @@ public:
         cout << first << "/" << second << "\n";
     }
     int ipart() const {
-        return first / second;  // целая часть деления
+        return first / second;  // С†РµР»Р°СЏ С‡Р°СЃС‚СЊ РґРµР»РµРЅРёСЏ
     }
 };
 
-// фабричная функция
+// С„Р°Р±СЂРёС‡РЅР°СЏ С„СѓРЅРєС†РёСЏ
 Pair3 make_Pair3(int a, int b) {
     Pair3 p;
     if (!p.init(a, b)) {
-        cerr << "Ошибка: недопустимые аргументы для Pair3\n";
+        cerr << "РћС€РёР±РєР°: РЅРµРґРѕРїСѓСЃС‚РёРјС‹Рµ Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ Pair3\n";
         exit(EXIT_FAILURE);
     }
     return p;
 }
 
 int main() {
-    // 1. фабричная функция
+    // 1. С„Р°Р±СЂРёС‡РЅР°СЏ С„СѓРЅРєС†РёСЏ
     Pair3 a = make_Pair3(7, 3);
 
-    // 2. через init
+    // 2. С‡РµСЂРµР· init
     Pair3 b; b.init(10, 4);
 
-    // 3. ввод с клавиатуры
+    // 3. РІРІРѕРґ СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
     Pair3 c; c.read();
 
     a.display(); b.display(); c.display();
@@ -53,14 +53,14 @@ int main() {
     cout << "b.ipart() = " << b.ipart() << "\n";
     cout << "c.ipart() = " << c.ipart() << "\n";
 
-    // 4. массив объектов
+    // 4. РјР°СЃСЃРёРІ РѕР±СЉРµРєС‚РѕРІ
     Pair3 arr[2];
     arr[0].init(11, 2);
     arr[1] = make_Pair3(25, 7);
     cout << "arr[0].ipart() = " << arr[0].ipart() << "\n";
     cout << "arr[1].ipart() = " << arr[1].ipart() << "\n";
 
-    // 5. динамический массив
+    // 5. РґРёРЅР°РјРёС‡РµСЃРєРёР№ РјР°СЃСЃРёРІ
     int n = 2;
     Pair3* dynArr = new Pair3[n];
     dynArr[0] = make_Pair3(100, 9);

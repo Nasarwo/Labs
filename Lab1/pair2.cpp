@@ -4,20 +4,20 @@
 using namespace std;
 
 class Pair2 {
-    double first;   // число
-    double second;  // показатель степени
+    double first;   // С‡РёСЃР»Рѕ
+    double second;  // РїРѕРєР°Р·Р°С‚РµР»СЊ СЃС‚РµРїРµРЅРё
 
 public:
     bool init(double a, double b) {
         if (a == 0.0 && b <= 0.0) {
-            cerr << "Ошибка: 0 нельзя возводить в неположительную степень\n";
+            cerr << "РћС€РёР±РєР°: 0 РЅРµР»СЊР·СЏ РІРѕР·РІРѕРґРёС‚СЊ РІ РЅРµРїРѕР»РѕР¶РёС‚РµР»СЊРЅСѓСЋ СЃС‚РµРїРµРЅСЊ\n";
             return false;
         }
         first = a; second = b; return true;
     }
     bool read() {
         double a, b;
-        cout << "Введите пару (double double): ";
+        cout << "Р’РІРµРґРёС‚Рµ РїР°СЂСѓ (double double): ";
         if (!(cin >> a >> b)) return false;
         return init(a, b);
     }
@@ -29,21 +29,24 @@ public:
     }
 };
 
-// фабричная функция
+// С„Р°Р±СЂРёС‡РЅР°СЏ С„СѓРЅРєС†РёСЏ
 Pair2 make_Pair2(double a, double b) {
     Pair2 p;
     if (!p.init(a, b)) {
-        cerr << "Ошибка: недопустимые аргументы для Pair2\n";
+        cerr << "РћС€РёР±РєР°: РЅРµРґРѕРїСѓСЃС‚РёРјС‹Рµ Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ Pair2\n";
         exit(EXIT_FAILURE);
     }
     return p;
 }
 
 int main() {
+    // 1. СЃРѕР·РґР°РЅРёРµ С‡РµСЂРµР· С„Р°Р±СЂРёС‡РЅСѓСЋ С„СѓРЅРєС†РёСЋ
     Pair2 a = make_Pair2(2.0, 3.5);
 
+    // 2. С‡РµСЂРµР· init
     Pair2 b; b.init(5.5, -2.0);
 
+    // 3. РІРІРѕРґ СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
     Pair2 c; c.read();
 
     a.display(); b.display(); c.display();
@@ -51,12 +54,14 @@ int main() {
     cout << "b.power() = " << b.power() << "\n";
     cout << "c.power() = " << c.power() << "\n";
 
+    // 4. СЃС‚Р°С‚РёС‡РµСЃРєРёР№ РјР°СЃСЃРёРІ РѕР±СЉРµРєС‚РѕРІ
     Pair2 arr[2];
     arr[0].init(10.0, 0.5);
     arr[1] = make_Pair2(0.5, 3.0);
     cout << "arr[0].power() = " << arr[0].power() << "\n";
     cout << "arr[1].power() = " << arr[1].power() << "\n";
 
+    // 5. РґРёРЅР°РјРёС‡РµСЃРєРёР№ РјР°СЃСЃРёРІ РѕР±СЉРµРєС‚РѕРІ
     int n = 2;
     Pair2* dynArr = new Pair2[n];
     dynArr[0] = make_Pair2(4.0, -1.5);
