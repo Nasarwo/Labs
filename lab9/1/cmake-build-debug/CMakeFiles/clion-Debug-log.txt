@@ -1,0 +1,1 @@
+CMakeLists.txt not found in /Users/dagger/CLionProjects/laba8 Select CMakeLists.txt
